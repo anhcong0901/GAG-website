@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plant Mutation Calculator</title>
   <style>
     body {
@@ -9,6 +10,7 @@
       background: #f9f9f9;
       margin: 0;
       padding: 20px;
+      font-size: 16px;
     }
 
     .container {
@@ -35,12 +37,14 @@
 
     select, input[type="checkbox"] {
       font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     select {
-      width: 100%;
       padding: 8px;
       margin-bottom: 10px;
+      white-space: normal;
     }
 
     .env-group {
@@ -50,6 +54,7 @@
       padding: 10px;
       border-radius: 5px;
       margin-bottom: 15px;
+      font-size: 14px;
     }
 
     .env-group label {
@@ -64,6 +69,28 @@
       text-align: center;
       color: #2c7;
       margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 18px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .result {
+        font-size: 24px;
+      }
+
+      select {
+        font-size: 16px;
+      }
+
+      .env-group {
+        font-size: 16px;
+      }
     }
   </style>
 </head>

@@ -177,13 +177,23 @@
     }
 
     for (let key in envMutations) {
-      const label = document.createElement("label");
+      const wrapper = document.createElement("div");
+      wrapper.style.display = "flex";
+      wrapper.style.alignItems = "center";
+      wrapper.style.marginBottom = "6px";
+      wrapper.style.gap = "8px";
+    
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.value = key;
-      label.appendChild(checkbox);
-      label.appendChild(document.createTextNode(` ${key} (x${envMutations[key]})`));
-      envContainer.appendChild(label);
+    
+      const label = document.createElement("label");
+      label.textContent = `${key} (x${envMutations[key]})`;
+      label.style.margin = 0;
+    
+      wrapper.appendChild(checkbox);
+      wrapper.appendChild(label);
+      envContainer.appendChild(wrapper);
     }
 
     function calculate() {

@@ -1,120 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plant Mutation Calculator</title>
   <style>
+    html {
+      font-size: 18px;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       margin: 0;
-      padding: 20px;
-      font-size: 16px;
+      padding: 1.25rem;
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* 18px–24px */
     }
 
     .container {
       max-width: 600px;
+      width: 100%;
       margin: auto;
       background: #fff;
-      padding: 25px 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: clamp(1rem, 4vw, 1.875rem);
+      border-radius: 0.625rem;
+      box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
     }
 
     h2 {
       margin-top: 0;
       text-align: center;
       color: #333;
+      font-size: 2rem; /* 32px */
     }
 
     label {
       display: block;
-      margin: 15px 0 5px;
+      margin: 0.9375rem 0 0.3125rem;
       font-weight: bold;
       color: #444;
     }
 
-    select, input[type="checkbox"] {
-      font-size: 14px;
+    select {
+      font-size: 1rem; /* 16px */
       width: 100%;
       box-sizing: border-box;
-    }
-
-    select {
-      padding: 8px;
-      margin-bottom: 10px;
+      padding: 0.625rem;
+      margin-bottom: 0.625rem;
       white-space: normal;
     }
 
+    #growth {
+      margin-bottom: 1.25rem;
+    }
+
+    input[type="checkbox"] {
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
     .env-group {
-      max-height: 180px;
+      max-height: 11.25rem;
       overflow-y: auto;
       background: #f1f1f1;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      font-size: 14px;
-      scrollbar-width: thin;
-      scrollbar-color: #ccc transparent;
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Desktop scrollbar (WebKit only) */
-    .env-group::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    .env-group::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 4px;
-    }
-    
-    /* Optional: hide scrollbar on mobile if needed */
-    @media (max-width: 600px) {
-      .env-group {
-        max-height: 200px;
-        font-size: 16px;
-      }
-    
-      .env-group::-webkit-scrollbar {
-        display: none; /* clean mobile look */
-      }
+      padding: 0.75rem;
+      border-radius: 0.3125rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .env-group label {
       font-weight: normal;
-      display: block;
-      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .result {
-      font-size: 20px;
+      font-size: 1.5rem; /* 24px */
       font-weight: bold;
       text-align: center;
       color: #2c7;
-      margin-top: 20px;
+      margin-top: 1.25rem;
     }
 
-    @media (max-width: 600px) {
-      body {
-        font-size: 18px;
-      }
-
+    @media (min-width: 601px) and (max-width: 1024px) {
       .container {
-        padding: 20px;
+        max-width: 90%;
       }
+    }
 
-      .result {
-        font-size: 24px;
-      }
-
-      select {
-        font-size: 16px;
-      }
-
-      .env-group {
-        font-size: 16px;
+    @media (min-width: 1025px) {
+      .container {
+        max-width: 600px;
       }
     }
   </style>

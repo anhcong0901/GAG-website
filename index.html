@@ -220,12 +220,12 @@
     const envContainer = document.getElementById("env-options");
     const totalDisplay = document.getElementById("total");
 
-    for (let name in baseValues) {
+    Object.keys(baseValues).sort().forEach(name => {
       const option = document.createElement("option");
       option.value = name;
       option.textContent = `${name} - $${baseValues[name].toLocaleString()}`;
       plantSelector.appendChild(option);
-    }
+    });
 
     for (let key in envMutations) {
       const label = document.createElement("label");

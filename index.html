@@ -55,9 +55,31 @@
       border-radius: 5px;
       margin-bottom: 15px;
       font-size: 14px;
-      -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
       scrollbar-color: #ccc transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Desktop scrollbar (WebKit only) */
+    .env-group::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .env-group::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    
+    /* Optional: hide scrollbar on mobile if needed */
+    @media (max-width: 600px) {
+      .env-group {
+        max-height: 200px;
+        font-size: 16px;
+      }
+    
+      .env-group::-webkit-scrollbar {
+        display: none; /* clean mobile look */
+      }
     }
 
     .env-group label {

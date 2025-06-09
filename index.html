@@ -65,6 +65,24 @@
       box-sizing: border-box;
     }
 
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .header-bar h2 {
+      margin: 0;
+      font-size: 2rem;
+      color: #222;
+    }
+
+    body.dark-mode .header-bar h2 {
+      color: #eee;
+    }
+
     .env-group {
       max-height: 11.25rem;
       overflow-y: auto;
@@ -102,7 +120,6 @@
     }
 
     #theme-toggle {
-      float: right;
       margin-bottom: 1rem;
       background: #ddd;
     }
@@ -150,8 +167,10 @@
 </head>
 <body>
   <div class="container">
-    <button id="theme-toggle">🌗 Toggle Theme</button>
-    <h2>🌱 Plant Mutation Calculator</h2>
+    <div class="header-bar">
+      <h2>🌱 Plant Mutation Calculator</h2>
+      <button id="theme-toggle">🌗 Toggle Theme</button>
+    </div>
 
     <label for="plant">Select Plant:</label>
     <select id="plant"></select>

@@ -181,15 +181,15 @@
       wrapper.style.display = "flex";
       wrapper.style.alignItems = "center";
       wrapper.style.marginBottom = "6px";
-      wrapper.style.gap = "8px";
     
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.value = key;
+      checkbox.style.marginRight = "10px";
+      checkbox.style.flexShrink = "0";
     
-      const label = document.createElement("label");
+      const label = document.createElement("span");
       label.textContent = `${key} (x${envMutations[key]})`;
-      label.style.margin = 0;
     
       wrapper.appendChild(checkbox);
       wrapper.appendChild(label);

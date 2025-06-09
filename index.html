@@ -109,6 +109,26 @@
       margin-top: 20px;
     }
 
+    .env-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    
+    .env-row input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+    
+    .env-row label {
+      flex: 1;
+      margin: 0;
+    }
+
+
     @media (max-width: 600px) {
       body {
         font-size: 18px;
@@ -190,17 +210,20 @@
     }
 
     for (let key in envMutations) {
-      const wrapper = document.createElement("label");
-      wrapper.className = "env-checkbox";
+      const wrapper = document.createElement("div");
+      wrapper.className = "env-row";
     
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.value = key;
+      checkbox.id = `env-${key}`;
     
-      const text = document.createTextNode(` ${key} (x${envMutations[key]})`);
+      const label = document.createElement("label");
+      label.setAttribute("for", `env-${key}`);
+      label.textContent = `${key} (x${envMutations[key]})`;
     
       wrapper.appendChild(checkbox);
-      wrapper.appendChild(text);
+      wrapper.appendChild(label);
       envContainer.appendChild(wrapper);
     }
 

@@ -227,7 +227,7 @@
       plantSelector.appendChild(option);
     });
 
-    for (let key in envMutations) {
+    Object.keys(envMutations).sort().forEach(key => {
       const label = document.createElement("label");
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -235,7 +235,7 @@
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(` ${key} (x${envMutations[key]})`));
       envContainer.appendChild(label);
-    }
+    });
 
     function calculate() {
       const plant = plantSelector.value;

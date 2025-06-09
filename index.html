@@ -88,6 +88,19 @@
       margin-bottom: 5px;
     }
 
+    .env-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    
+    .env-checkbox input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+
     .result {
       font-size: 20px;
       font-weight: bold;
@@ -177,24 +190,20 @@
     }
 
     for (let key in envMutations) {
-      const wrapper = document.createElement("div");
-      wrapper.style.display = "flex";
-      wrapper.style.alignItems = "center";
-      wrapper.style.marginBottom = "6px";
+      const wrapper = document.createElement("label");
+      wrapper.className = "env-checkbox";
     
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.value = key;
-      checkbox.style.marginRight = "10px";
-      checkbox.style.flexShrink = "0";
     
-      const label = document.createElement("span");
-      label.textContent = `${key} (x${envMutations[key]})`;
+      const text = document.createTextNode(` ${key} (x${envMutations[key]})`);
     
       wrapper.appendChild(checkbox);
-      wrapper.appendChild(label);
+      wrapper.appendChild(text);
       envContainer.appendChild(wrapper);
     }
+
 
     function calculate() {
       const plant = plantSelector.value;
